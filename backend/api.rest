@@ -1,0 +1,31 @@
+Post http://localhost:3000/auth/signup/
+Content-Type: application/json
+
+
+{
+    "username":"Hakeem",
+    "password":"12345"
+}
+
+###
+Post http://localhost:3000/auth/login/
+Content-Type: application/json
+
+
+{
+    "username":"Hakeem",
+    "password":"12345"
+}
+
+
+###
+
+Post http://localhost:3000/todos/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTczNDYwNzQ4MywiZXhwIjoxNzM0NjExMDgzfQ.go0Hj1Q73fKAekEhwlQm5kEGAUGH4CVHXW4ofMJIL-0
+
+
+{
+    "body":"Coding tonight",
+    "userId":1   
+}

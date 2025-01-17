@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Todo App</title>
+    
+</head>
+<body>
+    <style>
+       
+
+/* Reset some default styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.container {
+    width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center-align text within the container */
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+.category {
+    cursor: pointer;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.category:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #d9534f; /* Red for logout */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px; /* Space above the button */
+}
+
+button:hover {
+    background-color: #c9302c; /* Darker red on hover */
+}
+
+    </style>
+    <div class="container">
+        <h1>Welcome!</h1>
+        <h2>Select a Category to add tasks:</h2>
+        <ul id="categoryList">
+            <li class="category" data-category="Work">Work</li>
+            <li class="category" data-category="Personal">Personal</li>
+            <li class="category" data-category="Shopping">Shopping</li>
+        </ul>
+        <button id="logoutButton">Logout</button>
+    </div>
+
+    <script>
+        document.querySelectorAll('.category').forEach(item => {
+    item.addEventListener('click', function(){
+        const category = this.getAttribute('data-category');
+        window.location.href = 'todo.html? category=${category}';
+    }
+);
+});
+    </script>
+</body>
+</html>
