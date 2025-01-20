@@ -1,6 +1,6 @@
-const db = require('../models/database');
+import db from '../models/database';
 
-const addTodo = async (req, res) => {
+export const addTodo = async (req, res) => {
     const { task } = req.body;
     const userId = req.userId;
 
@@ -16,7 +16,7 @@ const addTodo = async (req, res) => {
     }
 };
 
-const getTodos = async (req, res) => {
+export const getTodos = async (req, res) => {
     const userId = req.userId;
 
     try {
@@ -27,7 +27,7 @@ const getTodos = async (req, res) => {
     }
 };
 
-const updateTodo = async (req, res) => {
+export const updateTodo = async (req, res) => {
     const { id } = req.params;
     const { task, completed } = req.body;
 
@@ -42,7 +42,7 @@ const updateTodo = async (req, res) => {
     }
 };
 
-const deleteTodo = async (req, res) => {
+export const deleteTodo = async (req, res) => {
     const { id } = req.params;
 
     try {
@@ -53,4 +53,3 @@ const deleteTodo = async (req, res) => {
     }
 };
 
-module.exports = { addTodo, getTodos, updateTodo, deleteTodo };
