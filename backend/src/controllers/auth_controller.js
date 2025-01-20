@@ -11,12 +11,13 @@ const signup = async (req, res) => {
         console.log(`Hashing  user password ${password} and ${username} ...`)
 
         const hashedPassword = await bcrypt.hash(password, 10);
-        console.log("creating user...")
-        const [result] = await db.query(
+        console.log("creating user...");
+        const result = await db.query(
             'INSERT INTO users (username, password) VALUES (?, ?)',
             [username, hashedPassword]
         );
-        const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: '7d' });
+        const userId = result[0].insertId;
+        const token = jwt.sign({ userId}, process.env.JWT_SECRET, { expiresIn: '7d' });
         res.status(201).json({ message: 'User created successfully', token});
     } catch (err) {
         console.log("error creating user..."+err.message)
