@@ -1,6 +1,6 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import db from '../models/database';
+import db from '../models/database.js';
 
 export const signup = async (req, res) => {
     
@@ -8,7 +8,7 @@ export const signup = async (req, res) => {
     const { username, password } = req.body;
 
     if(!username ||!password){
-        return res.status(400).json({ message: 'Username or password field is empty!' });
+        return res.status(401).json({ message: 'Username or password field is empty!' });
     }
     
     try {
@@ -35,6 +35,9 @@ export const signup = async (req, res) => {
 
 export const login = async (req, res) => {
     const { username, password } = req.body;
+    if(!username ||!password){
+        return res.status(400).json({ message: 'Username or password field is empty!' });
+    }
 
     try {
         const [users] = await db.query("SELECT * FROM users WHERE username =?", [username]);

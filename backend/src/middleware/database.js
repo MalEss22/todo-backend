@@ -1,4 +1,4 @@
-import db from '../models/database';
+import db from '../models/database.js';
 
 export const checkDbConnection = async (req, res, next) => {
     try {

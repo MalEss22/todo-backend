@@ -150,11 +150,13 @@ app.listen(port, () => {
 import cors from 'cors';
 import express from 'express'
 import bodyParser from 'body-parser';
-import   authRoutes  from './src/routes/auth';
-import todoRoutes from './src/routes/todo';
-const checkDbConnection = require('./src/middleware/database');
+import  authRoutes  from './src/routes/auth.js';
+import todoRoutes from './src/routes/todo.js';
+import  {checkDbConnection} from './src/middleware/database.js';
 
-require('dotenv').config();
+//require('dotenv').config();
+import { configDotenv } from 'dotenv';
+configDotenv();
 
 const app = express();
 

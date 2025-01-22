@@ -1,4 +1,4 @@
-import db from '../models/database';
+import db from '../models/database.js';
 
 export const addTodo = async (req, res) => {
     const { task } = req.body;

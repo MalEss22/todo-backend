@@ -1,9 +1,9 @@
 import express from 'express';
-import {addTodo} from '../controllers/todo_controller'
-import { getTodos } from '../controllers/todo_controller';
-import { updateTodo } from '../controllers/todo_controller';
-import { deleteTodo } from '../controllers/todo_controller';
-import {authenticate} from '../middleware/auth_middleware';
+import {addTodo} from '../controllers/todo_controller.js'
+import { getTodos } from '../controllers/todo_controller.js';
+import { updateTodo } from '../controllers/todo_controller.js';
+import { deleteTodo } from '../controllers/todo_controller.js';
+import {authenticate} from '../middleware/auth_middleware.js';
 
 const router = express.Router();
 
