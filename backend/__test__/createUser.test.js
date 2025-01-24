@@ -1,7 +1,7 @@
 import request from 'supertest';
 import {faker} from '@faker-js/faker'
 import app from '../server';
-import deleteTestUser from '../src/utils/deletetestuser';
+import deleteTestUser from '../src/utils/deleteTestUser.js';
 
 describe("POST /auth/signup", () => {
     const testUser = {
