@@ -30,6 +30,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: |
+        echo $BASE64_ENV_FILE
         echo $BASE64_ENV_FILE | base64 --decode > .env
         npm ci
         npm run build --if-present
