@@ -1,6 +1,6 @@
-const db = require('../models/database');
+import db from '../models/database.js';
 
-const checkDbConnection = async (req, res, next) => {
+export const checkDbConnection = async (req, res, next) => {
     try {
         console.log("database connected")
 
@@ -14,4 +14,3 @@ const checkDbConnection = async (req, res, next) => {
     }
 };
 
-module.exports = checkDbConnection;

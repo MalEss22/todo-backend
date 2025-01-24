@@ -147,15 +147,16 @@ app.listen(port, () => {
 
 */
 
-const cors = require('cors');
+import cors from 'cors';
+import express from 'express'
+import bodyParser from 'body-parser';
+import  authRoutes  from './src/routes/auth.js';
+import todoRoutes from './src/routes/todo.js';
+import  {checkDbConnection} from './src/middleware/database.js';
 
-const express = require('express');
-const bodyParser = require('body-parser');
-const authRoutes = require('./src/routes/auth');
-const todoRoutes = require('./src/routes/todo');
-const checkDbConnection = require('./src/middleware/database');
-
-require('dotenv').config();
+//require('dotenv').config();
+import { configDotenv } from 'dotenv';
+configDotenv();
 
 const app = express();
 
@@ -169,3 +170,4 @@ app.use('/todos', todoRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+export default app;

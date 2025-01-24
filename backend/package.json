@@ -1,11 +1,15 @@
 {
   "name": "cef345-group-7",
   "version": "1.0.0",
+  "type": "module",
   "description": "Store codes for project",
   "main": "server.js",
   "scripts": {
-    "test": "jest",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "start": "nodemon server.js"
+  },
+  "jest": {
+    "transform": {}
   },
   "repository": {
     "type": "git",
@@ -19,16 +23,20 @@
   },
   "homepage": "https://github.com/MalEss22/CEF345-GROUP-7#readme",
   "dependencies": {
+    "@faker-js/faker": "^9.4.0",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "jest": "^29.7.0",
     "jsonwebtoken": "^9.0.2",
     "mysql": "^2.18.1",
     "mysql2": "^3.11.5",
     "nodemon": "^3.1.9"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
   }
 }

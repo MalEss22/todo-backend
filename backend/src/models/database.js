@@ -1,5 +1,7 @@
-const mysql = require('mysql2');
-const dotenv = require('dotenv');
+//const mysql = require('mysql2');
+import mysql from 'mysql2';
+import dotenv from 'dotenv'
+//const dotenv = require('dotenv');
 
 dotenv.config();
 
@@ -68,4 +70,4 @@ pool.getConnection((err, connection) => {
     }
 });
 
-module.exports = pool.promise();
+export default pool.promise();

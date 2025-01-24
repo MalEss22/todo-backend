@@ -1,11 +1,16 @@
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const db = require('../models/database');
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import db from '../models/database.js';
 
-const signup = async (req, res) => {
+export const signup = async (req, res) => {
     
     console.log(req.body);
     const { username, password } = req.body;
+
+    if(!username ||!password){
+        return res.status(401).json({ message: 'Username or password field is empty!' });
+    }
+    
     try {
         console.log('registering user...');
         console.log(`Hashing  user password ${password} and ${username} ...`)
@@ -28,8 +33,11 @@ const signup = async (req, res) => {
     }
 };
 
-const login = async (req, res) => {
+export const login = async (req, res) => {
     const { username, password } = req.body;
+    if(!username ||!password){
+        return res.status(400).json({ message: 'Username or password field is empty!' });
+    }
 
     try {
         const [users] = await db.query("SELECT * FROM users WHERE username =?", [username]);
@@ -50,5 +58,3 @@ const login = async (req, res) => {
         res.status(500).json({ message: 'Error logging in', error: err.message });
     }
 };
-
-module.exports = { signup, login };
