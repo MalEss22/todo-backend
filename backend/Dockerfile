@@ -5,10 +5,10 @@ FROM node:18
 WORKDIR /app
 
 # Copy package.json and package-lock.json (if available) to install dependencies
-COPY backend/package*.json ./
+COPY package*.json ./
 
 # Install the app dependencies
-RUN npm install
+RUN npm install-production
 
 # Copy the rest of the application code to the container
 COPY . .
@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3000
 
 # Start the app when the container runs
-CMD ["node", "app.js"]
+CMD ["node", "server.js"]
